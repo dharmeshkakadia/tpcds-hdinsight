@@ -1,2 +1,2 @@
-# tpcdsgen-as-hive-query
+# tpcds-datagen-as-hive-query
 Generate TPCDS data using hive query
