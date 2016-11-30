@@ -40,7 +40,7 @@ Generate TPCDS data using hive query
 
 2. Upload the resources to DFS.
     ```shell
-    hdfs dfs -copyFromLocal resoruces /tmp
+    hdfs dfs -copyFromLocal resources /tmp
     ```    
     
 3. Run TPCDSDataGen.hql with settings.hql file and set the required config variables.
