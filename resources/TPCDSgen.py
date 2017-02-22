@@ -11,6 +11,8 @@ import argparse
 import subprocess
 import sys
 import os
+import time
+import random
 
 HDFS_CMD = "hdfs dfs"
 
@@ -44,6 +46,7 @@ def execute(cmd,retry=10):
     try:
         subprocess.check_call(cmd,stdin=subprocess.PIPE,stderr=subprocess.STDOUT,shell=True)
     except:
+        time.sleep(retry*random.randint(retry*60,600))
         execute(cmd,retry-1)
 
 
