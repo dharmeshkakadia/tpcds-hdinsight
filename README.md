@@ -76,3 +76,14 @@ Generate TPCDS data using hive query
     ```shell
     beeline -u "jdbc:hive2://`hostname -f`:10001/;transportMode=http" -n "" -p "" -database tpcds_orc -i settings.hql -f queries/query12.sql 
     ```
+
+
+## FAQ
+
+1. Does it work with scale factor 1?
+
+    No. The parrellel data generation assumes that scale > 1. If you are just starting out, I would suggest you start with 10 and then move to standard higher scale factors (100, 1000, 10000,..)
+
+2. Do I have to specify PARTS=SCALE ?
+
+    Yes.
