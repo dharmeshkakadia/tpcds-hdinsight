@@ -95,3 +95,13 @@ If you want to run all the queries 10 times and measure the times it takes, you 
 3. How do I avoid my session getting killed due to network errors while long running benchmark?
     
    Use byobu. Type byobu which will start a new session and then run the command. It will be there when you come back even if your network connection is broken. 
+   
+4. How do I generate Parquet data?
+
+    After generating raw data(step 3a), use the following command:
+    
+    ```
+    hive -i settings.hql -f ddl/createAllParquetTables.hql -hiveconf PARQUETDBNAME=tpcds_pqt -hiveconf SOURCE=tpcds
+    ```
+    
+    This will generate tpcds_pqt database with all the tables in parquet format.
