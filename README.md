@@ -113,3 +113,15 @@ If you want to run all the queries 10 times and measure the times it takes, you 
    ```
    for f in queries/*.sql; do for i in {1..10} ; do STARTTIME="`date +%s`";  beeline -u "jdbc:hive2://`hostname -f`:10002/tpcds_orc;transportMode=http" -i sparksettings.hql -f $f  > $f.run_$i.out 2>&1 ; ENDTIME="`date +%s`"; echo "$f,$i,$STARTTIME,$ENDTIME,$(($ENDTIME-$STARTTIME))" >> times_orc.csv; done; done;
    ```
+
+#### How do I run the queries with [Presto](https://github.com/dharmeshkakadia/presto-hdinsight)?
+   
+   ```
+   presto --schema tpcds_orc -f queries/query12.sql
+   ```
+   
+   You can run all the queries 10 times with presto with the following command,
+   
+   ```
+   for f in queries/*.sql; do for i in {1..10} ; do STARTTIME="`date +%s`"; presto --schema tpcds_orc -f $f  > $f.run_$i.out 2>&1 ; ENDTIME="`date +%s`"; echo "$f,$i,$STARTTIME,$ENDTIME,$(($ENDTIME-$STARTTIME))" >> times_orc.csv; done; done;
+   ```
