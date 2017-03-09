@@ -84,19 +84,19 @@ If you want to run all the queries 10 times and measure the times it takes, you 
 
 ## FAQ
 
-1. Does it work with scale factor 1?
+#### Does it work with scale factor 1?
 
     No. The parrellel data generation assumes that scale > 1. If you are just starting out, I would suggest you start with 10 and then move to standard higher scale factors (100, 1000, 10000,..)
 
-2. Do I have to specify PARTS=SCALE ?
+#### Do I have to specify PARTS=SCALE ?
 
     Yes.
 
-3. How do I avoid my session getting killed due to network errors while long running benchmark?
+#### How do I avoid my session getting killed due to network errors while long running benchmark?
     
    Use byobu. Type byobu which will start a new session and then run the command. It will be there when you come back even if your network connection is broken. 
    
-4. How do I generate Parquet data?
+#### How do I generate Parquet data?
 
     After generating raw data(step 3a), use the following command:
     
@@ -106,7 +106,7 @@ If you want to run all the queries 10 times and measure the times it takes, you 
     
     This will generate tpcds_pqt database with all the tables in parquet format.
 
-5. How do I run the queries with Spark?
+#### How do I run the queries with Spark?
    
    Spark thriftserver listens on 10002 instead of hive thrift server listening on 10001. So replace the connection url appropriately. For example, running the all the queries 10 times with Spark,
    
