@@ -111,5 +111,5 @@ If you want to run all the queries 10 times and measure the times it takes, you 
    Spark thriftserver listens on 10002 instead of hive thrift server listening on 10001. So replace the connection url appropriately. For example, running the all the queries 10 times with Spark,
    
    ```
-   for f in queries/*.sql; do for i in {1..10} ; do STARTTIME="`date +%s`";  beeline -u "jdbc:hive2://`hostname -f`:10002/tpcds_orc;transportMode=http" -i settings.hql -f $f  > $f.run_$i.out 2>&1 ; ENDTIME="`date +%s`"; echo "$f,$i,$STARTTIME,$ENDTIME,$(($ENDTIME-$STARTTIME))" >> times_orc.csv; done; done;
+   for f in queries/*.sql; do for i in {1..10} ; do STARTTIME="`date +%s`";  beeline -u "jdbc:hive2://`hostname -f`:10002/tpcds_orc;transportMode=http" -i sparksettings.hql -f $f  > $f.run_$i.out 2>&1 ; ENDTIME="`date +%s`"; echo "$f,$i,$STARTTIME,$ENDTIME,$(($ENDTIME-$STARTTIME))" >> times_orc.csv; done; done;
    ```
