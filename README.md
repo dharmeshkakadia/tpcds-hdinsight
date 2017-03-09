@@ -98,13 +98,13 @@ If you want to run all the queries 10 times and measure the times it takes, you 
    
 #### How do I generate Parquet data?
 
-    After generating raw data(step 3a), use the following command:
+   After generating raw data(step 3a), use the following command:
     
-    ```
-    hive -i settings.hql -f ddl/createAllParquetTables.hql -hiveconf PARQUETDBNAME=tpcds_pqt -hiveconf SOURCE=tpcds
-    ```
+   ```
+   hive -i settings.hql -f ddl/createAllParquetTables.hql -hiveconf PARQUETDBNAME=tpcds_pqt -hiveconf SOURCE=tpcds
+   ```
     
-    This will generate tpcds_pqt database with all the tables in parquet format.
+   This will generate tpcds_pqt database with all the tables in parquet format.
 
 #### How do I run the queries with Spark?
    
