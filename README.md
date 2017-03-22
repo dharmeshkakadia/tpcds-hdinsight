@@ -1,7 +1,8 @@
 # tpcds-datagen-as-hive-query
 Generate TPCDS data using hive query
 
-##How to use with Hive CLI
+## How to use with Hive CLI
+
 1. Clone this repo.
 
     ```shell
@@ -36,7 +37,8 @@ Generate TPCDS data using hive query
     hive -database tpcds_orc -i settings.hql -f queries/query12.sql 
     ```
 
-##How to use with Beeline CLI
+## How to use with Beeline CLI
+
 1. Clone this repo.
 
     ```shell
