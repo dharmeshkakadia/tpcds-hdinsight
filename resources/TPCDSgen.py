@@ -24,12 +24,12 @@ def generate_data_to_hdfs(hdfs_output, partition, scale_factor, num_parts):
 
     execute("./dsdgen -dir . -force Y -scale %d -child %d -parallel %d" % (scale_factor, partition, num_parts))
 
-    dim_tables=["call_center","catalog_page","customer_address","customer","date_dim","household_demographics","income_band","item","promotion","reason","ship_mode","store","time_dim","warehouse","web_page","web_returns","web_sales","web_site"]
+    dim_tables=["call_center","catalog_page","date_dim","household_demographics","income_band","item","promotion","reason","ship_mode","store","time_dim","warehouse","web_page","web_site"]
     if partition == 1:
         for d in dim_tables:
             copy_table_to_hdfs(hdfs_output,d,partition,num_parts)
 
-    tables=["catalog_returns","catalog_sales","customer_demographics","inventory","store_returns","store_sales"]
+    tables=["catalog_returns","catalog_sales","inventory","store_returns","store_sales","web_sales","web_returns","customer", "customer_demographics","customer_address"]
     for t in tables:
         copy_table_to_hdfs(hdfs_output,t,partition,num_parts)
 
@@ -38,6 +38,7 @@ def copy_table_to_hdfs(hdfs_output, table_name, partition,num_parts):
     hdfs_file_name = "%s/%s/%s" % (hdfs_output, table_name, local_file_name)
     execute("%s -mkdir -p %s/%s" % (HDFS_CMD, hdfs_output, table_name))
     execute("%s -copyFromLocal -f %s %s" % (HDFS_CMD, local_file_name, hdfs_file_name))
+    os.remove(local_file_name)
 
 def execute(cmd,retry=10):
     if(retry<0):
