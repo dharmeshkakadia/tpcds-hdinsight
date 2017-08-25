@@ -1,12 +1,12 @@
-# tpcds-datagen-as-hive-query
-Generate TPCDS data using hive query
+# tpcds-hdinsight
+TPCDS benchmark for Azure HDInsight
 
 ## How to use with Hive CLI
 
 1. Clone this repo.
 
     ```shell
-    git clone https://github.com/dharmeshkakadia/tpcds-datagen-as-hive-query/ && cd tpcds-datagen-as-hive-query
+    git clone https://github.com/dharmeshkakadia/tpcds-hdinsight/ && cd tpcds-hdinsight
     ```
 2. Run TPCDSDataGen.hql with settings.hql file and set the required config variables.
     ```shell
@@ -42,7 +42,7 @@ Generate TPCDS data using hive query
 1. Clone this repo.
 
     ```shell
-    git clone https://github.com/dharmeshkakadia/tpcds-datagen-as-hive-query/ && cd tpcds-datagen-as-hive-query
+    git clone https://github.com/dharmeshkakadia/tpcds-hdinsight && cd tpcds-hdinsight
     ```
 
 2. Upload the resources to DFS.
