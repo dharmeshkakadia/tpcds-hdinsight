@@ -15,5 +15,3 @@ select  ca_zip
  group by ca_zip
  order by ca_zip
  limit 100;
-
-
