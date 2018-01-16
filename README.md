@@ -98,6 +98,15 @@ If you want to run all the queries 10 times and measure the times it takes, you 
     
    Use byobu. Type byobu which will start a new session and then run the command. It will be there when you come back even if your network connection is broken. 
    
+#### How do I generate partitioned text tables ?   
+   After generating raw data(step 3a), use the following command:
+    
+   ```
+   hive -i settings.hql -f ddl/createAllTextTables.hql -hiveconf TEXTDBNAME=tpcds_text -hiveconf SOURCE=tpcds
+   ```
+    
+   This will generate tpcds_text database with all the tables in text format.
+   
 #### How do I generate Parquet data?
 
    After generating raw data(step 3a), use the following command:
